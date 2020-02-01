@@ -32,6 +32,7 @@ Bug Fixes:
 - Fixed by adding lazy property `ActorCriticRLModel.runner`. Subclasses now use lazily-generated
     `self.runner` instead of reinitializing a new Runner every time `learn()` is called.
 - Fixed a bug in `check_env` where it would fail on high dimensional action spaces
+- Fixed `Monitor.close()` that was not calling the parent method
 
 Deprecations:
 ^^^^^^^^^^^^^
