@@ -15,7 +15,6 @@ Breaking Changes:
 New Features:
 ^^^^^^^^^^^^^
 - Parallelized updating and sampling from the replay buffer in DQN. (@flodorner)
-
 - Docker build script, `scripts/build_docker.sh`, can push images automatically.
 
 Bug Fixes:
@@ -30,9 +29,9 @@ Bug Fixes:
 - Fixed a bug in PPO2, ACER, A2C, and ACKTR where repeated calls to `learn(total_timesteps)` reset
   the environment on every call, potentially biasing samples toward early episode timesteps.
   (@shwang)
-
   - Fixed by adding lazy property `ActorCriticRLModel.runner`. Subclasses now use lazily-generated
     `self.runner` instead of reinitializing a new Runner every time `learn()` is called.
+- Fixed a bug in `check_env` where it would fail on high dimensional action spaces
 
 Deprecations:
 ^^^^^^^^^^^^^
@@ -41,6 +40,7 @@ Others:
 ^^^^^^^
 - Removed redundant return value from `a2c.utils::total_episode_reward_logger`. (@shwang)
 - Cleanup and refactoring in `common/identity_env.py` (@shwang)
+- Added a Makefile to simplify common development tasks (build the doc, type check, run the tests)
 
 Documentation:
 ^^^^^^^^^^^^^^
